@@ -1,0 +1,5 @@
+[
+  { "id" : 1, "name" : "Arvind", "age" : 31, "username" : "admin", "password" : "admin" },
+  { "id" : 2, "name" : "Arvind2", "age" : 30, "username" : "user", "password" : "user" },
+  { "id" : 3, "name" : "Arvind3", "age" : 32, "username" : "manager", "password" : "manager" }
+]
