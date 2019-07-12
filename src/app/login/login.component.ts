@@ -15,23 +15,19 @@ import { userLogin } from './userLogin';
 export class LoginComponent {
     userModel = new userLogin();
     loginmsg:string;
-    errorMessage: string;
 
   constructor(private route: ActivatedRoute,
         private router: Router, private loginservice: LoginService)
     {}
 
   UserLogin() {
-alert('hi');
-    //this.loginservice.userLogin().subscribe(data => this.users = data,
      this.loginservice.login(this.userModel).subscribe(
        data => {
          this.userModel = data;
          this.router.navigateByUrl('home');
        },
        error => {
-         this.errorMessage = error; 
-         window.alert(error.message);
+         window.alert(error);
          this.loginmsg='Inccorect username or password.';
          this.router.navigateByUrl('login');
           } 
