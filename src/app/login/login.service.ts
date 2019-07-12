@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IUser } from './user';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError, map } from 'rxjs/operators';
+import { userLogin } from './userLogin';
 
 
 @Injectable() export class LoginService
@@ -11,7 +12,7 @@ constructor(private http: HttpClient){}
 
 private _url: string = './employee.json';
 
-private url2 : string = 'http://localhost:17351/api/leave/leavetype';
+private url2 : string = 'http://localhost:17351/api/login';
 
 userLogin(): Observable<IUser[]>
 {
@@ -19,15 +20,16 @@ userLogin(): Observable<IUser[]>
   
 }
 
-login(): Observable<Object[]>
+login(UserLogin: userLogin)
 {
-  return this.http.get<Object[]>(this.url2).pipe(
-      retry(1),
-      catchError(this.handleError)
-      );
+  console.log(UserLogin);
+  return this.http.post<any>(this.url2, UserLogin).pipe(
+       retry(1),
+       catchError(this.handleError));
 }
 
 handleError(error) {
+  console.log(error);
    let errorMessage = '';
    if (error.error instanceof ErrorEvent) {
      // client-side error

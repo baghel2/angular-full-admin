@@ -12,7 +12,7 @@ import { userLogin } from './userLogin';
     styleUrls: ['./main.css','./material-design-iconic-font.css','./material-design-iconic-font.min.css']
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent {
     userModel = new userLogin();
     loginmsg:string;
     errorMessage: string;
@@ -22,20 +22,19 @@ export class LoginComponent implements OnInit {
         private router: Router, private loginservice: LoginService)
     {}
 
-     ngOnInit() {
-
-     }
-
-
   UserLogin() {
 alert('hi');
     //this.loginservice.userLogin().subscribe(data => this.users = data,
-     this.loginservice.login().subscribe(
-       data => {this.users = data,console.log('completed'), console.log(this.users)},
-       error => {this.errorMessage = error; window.alert(error.message); } 
+     this.loginservice.login(this.userModel).subscribe(
+       data => {
+         console.log(data),console.log('completed') 
+       },
+       error => {
+         this.errorMessage = error; 
+         window.alert(error.message); } 
        );
 
-    if(this.username=='12345' && this.password=='12345')
+    if(this.userModel.username=='12345' && this.userModel.password=='12345')
     {
     this.router.navigateByUrl('home');
     }
