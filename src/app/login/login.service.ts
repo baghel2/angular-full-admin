@@ -29,14 +29,18 @@ login(UserLogin: userLogin)
 }
 
 handleError(error) {
-  console.log(error);
+ 
    let errorMessage = '';
    if (error.error instanceof ErrorEvent) {
      // client-side error
+      console.log(error.error.message);
      errorMessage = `Error: ${error.error.message}`;
    } else {
      // server-side error
+       
      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      console.log(errorMessage);
+         console.log(error.message);
    }
    return throwError(errorMessage);
  }

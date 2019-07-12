@@ -16,7 +16,6 @@ export class LoginComponent {
     userModel = new userLogin();
     loginmsg:string;
     errorMessage: string;
-    public users: Object;
 
   constructor(private route: ActivatedRoute,
         private router: Router, private loginservice: LoginService)
@@ -27,22 +26,16 @@ alert('hi');
     //this.loginservice.userLogin().subscribe(data => this.users = data,
      this.loginservice.login(this.userModel).subscribe(
        data => {
-         console.log(data),console.log('completed') 
+         this.userModel = data;
+         this.router.navigateByUrl('home');
        },
        error => {
          this.errorMessage = error; 
-         window.alert(error.message); } 
+         window.alert(error.message);
+         this.loginmsg='Inccorect username or password.';
+         this.router.navigateByUrl('login');
+          } 
        );
-
-    if(this.userModel.username=='12345' && this.userModel.password=='12345')
-    {
-    this.router.navigateByUrl('home');
-    }
-    else
-    {
-      this.loginmsg='Inccorect username or password.';
-      this.router.navigateByUrl('login');
-    }
   }
 
 
