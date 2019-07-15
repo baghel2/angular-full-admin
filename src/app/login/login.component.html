@@ -3,7 +3,7 @@
 		<div class="container-login100" style="background-image: url('/src/app/assets/bg-01.jpg');">
     
 			<div class="wrap-login100">
-			<form class="login100-form validate-form" #loginForm="ngForm"  (ngSubmit)="UserLogin()">
+			<form class="login100-form validate-form" #loginForm="ngForm"  (ngSubmit)="UserLogin()" novalidate>
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>
@@ -29,7 +29,7 @@
           <br/>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" [disabled]="!loginForm.valid">
+						<button class="login100-form-btn" [disabled]="loginForm.form.invalid">
 						<h4>	Login</h4>
 						</button>
 					</div>
