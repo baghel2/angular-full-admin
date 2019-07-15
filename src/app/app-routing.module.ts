@@ -2,9 +2,6 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent }   from './dashboard/dashboard.component';
-import { HeroesComponent }      from './heroes/heroes.component';
-import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
-import { ProductComponent }      from './product/product.component';
 import { LoginComponent }      from './login/login.component';
 import { HomeComponent }      from './home/home.component';
 import { UserComponent }      from './user/user.component';
@@ -18,11 +15,9 @@ const routes: Routes = [
     children: [
 
               { path: '', component: DashboardComponent },
-              { path: 'heroes', component: HeroesComponent },
               { path: 'dashboard',component: DashboardComponent},
-              { path: 'product', component: ProductComponent},
               { path: 'user', component: UserComponent},
-               { path: 'test', component: TestComponent },
+              { path: 'test', component: TestComponent },
              ]
     },
     {
