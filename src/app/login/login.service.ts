@@ -10,9 +10,7 @@ import { userLogin } from './userLogin';
 {
 constructor(private http: HttpClient){}
 
-private _url: string = './employee.json';
-
-private url2 : string = 'http://localhost:17351/api/login';
+private _url : string = 'http://localhost:17351/api/login';
 
 userLogin(): Observable<IUser[]>
 {
@@ -23,7 +21,7 @@ userLogin(): Observable<IUser[]>
 login(UserLogin: userLogin)
 {
   console.log(UserLogin);
-  return this.http.post<any>(this.url2, UserLogin).pipe(
+  return this.http.post<any>(this._url, UserLogin).pipe(
        retry(1),
        catchError(this.handleError));
 }
