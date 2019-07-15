@@ -11,9 +11,11 @@ export class UserAuthenticationService {
     this.isUserLoggedIn = false;
    }
 
-   setLogin( username )
+   setLogin( username, _token )
    {
-     this.isUserLoggedIn =true;
+     this.isUserLoggedIn = true;
+     this.token = _token ;
+     this.username =username ;
    }
 
    isUserLogedInStatus(){

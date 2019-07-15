@@ -5,6 +5,7 @@ import { IUser } from './user';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { LoginService } from './login.service';
 import { userLogin } from './userLogin';
+import { UserAuthenticationService } from './user-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -17,13 +18,14 @@ export class LoginComponent {
     loginmsg:string;
 
   constructor(private route: ActivatedRoute,
-        private router: Router, private loginservice: LoginService)
+        private router: Router, private loginservice: LoginService, private userAuthService: UserAuthenticationService)
     {}
 
   UserLogin() {
      this.loginservice.login(this.userModel).subscribe(
        data => {
          this.userModel = data;
+         this.userAuthService.setLogin(this.userModel.username, data.token);
          this.router.navigateByUrl('home');
        },
        error => {

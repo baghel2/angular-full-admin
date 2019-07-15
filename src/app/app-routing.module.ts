@@ -5,13 +5,13 @@ import { DashboardComponent }   from './dashboard/dashboard.component';
 import { LoginComponent }      from './login/login.component';
 import { HomeComponent }      from './home/home.component';
 import { UserComponent }      from './user/user.component';
-import { TestComponent }      from './home/test/test.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent,
+  { path: 'home', component: HomeComponent,  canActivate: [AuthGuard],
     children: [
 
               { path: '', component: DashboardComponent },
