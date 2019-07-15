@@ -2,7 +2,7 @@
 <!-- Top container -->
 <div class="w3-bar w3-top w3-blue w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" (click)="w3_open();"><i class="fa fa-bars"></i></button>
-   <a routerLink="./dashboard" class="w3-bar-item w3-button w3-hide-small w3-hover-white"><i class="fa fa-home w3-margin-right"></i>Logo</a>
+   <a routerLink="./dashboard" class="w3-bar-item w3-button w3-hide-small w3-hover-white"><i class="fa fa-home w3-margin-right"></i>LMS</a>
   <a routerLink="./heroes" class="w3-bar-item w3-button w3-hide-small  w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
   <a routerLink="./user" class="w3-bar-item w3-button w3-hide-small w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
   
@@ -29,7 +29,7 @@
       <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8 w3-bar">
-      <span>Welcome, <strong>Mike</strong></span><br>
+      <span>Welcome, <strong>{{this.userAuthService.getLoggedInUse().userName}}</strong></span><br>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>

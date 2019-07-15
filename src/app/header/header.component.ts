@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { UserAuthenticationService } from '../login/user-authentication.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
+   
    w3_openvar:string="none";
-  constructor() { }
+
+  constructor(private userAuthService: UserAuthenticationService) { 
+  }
 
   ngOnInit() {
+  console.log(this.userAuthService.getLoggedInUser().userName);
   }
 // Script to open and close sidebar
  w3_open() {

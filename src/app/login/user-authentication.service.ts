@@ -1,25 +1,35 @@
 import { Injectable } from '@angular/core';
+import { userLogin } from '../login/userLogin'
 
 @Injectable()
 export class UserAuthenticationService {
 
   private isUserLoggedIn: boolean;
-  private username: string;
-  private token : string;
+  user : userLogin;
 
   constructor() {  
     this.isUserLoggedIn = false;
    }
 
-   setLogin( username, _token )
+   setLogin( user )
    {
      this.isUserLoggedIn = true;
-     this.token = _token ;
-     this.username =username ;
+     this.user = user;
    }
 
-   isUserLogedInStatus(){
+   UserLogedInStatus(){
      return this.isUserLoggedIn;
    }
+
+   getLoggedInUser()
+   { 
+     return this.user;
+   }
+ 
+   logOut(){
+     this.user =null;
+     this.isUserLoggedIn =false;
+   }
+
 
 }

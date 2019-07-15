@@ -24,8 +24,8 @@ export class LoginComponent {
   UserLogin() {
      this.loginservice.login(this.userModel).subscribe(
        data => {
-         this.userModel = data;
-         this.userAuthService.setLogin(this.userModel.username, data.token);
+        // this.userModel = data;
+         this.userAuthService.setLogin(data);
          this.router.navigateByUrl('home');
        },
        error => {
@@ -36,6 +36,11 @@ export class LoginComponent {
        );
   }
 
+logOut(){
+  //this.userModel =null;
+this.userAuthService.logOut();
+this.router.navigateByUrl('login');
+}
 
 
 }

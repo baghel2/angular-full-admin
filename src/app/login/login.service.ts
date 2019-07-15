@@ -13,15 +13,8 @@ constructor(private http: HttpClient){}
 
 private _url : string = 'http://localhost:17351/api/login';
 
-userLogin(): Observable<IUser[]>
-{
-  return this.http.get<IUser[]>(this._url);
-  
-}
-
 login(UserLogin: userLogin)
 {
-  console.log(UserLogin);
   return this.http.post<any>(this._url, UserLogin).pipe(
        retry(1),
        catchError(this.handleError));
