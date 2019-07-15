@@ -16,8 +16,7 @@ const routes: Routes = [
 
               { path: '', component: DashboardComponent },
               { path: 'dashboard',component: DashboardComponent},
-              { path: 'user', component: UserComponent},
-              { path: 'test', component: TestComponent },
+              { path: 'user', component: UserComponent}
              ]
     },
     {
