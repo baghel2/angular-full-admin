@@ -19,6 +19,7 @@ import { UserService } from './service/user.service';
 import { DashRoutingModule }      from './dashboard/dash-routing.module';
 import { settingsService } from './settings.service';
 import { UserAuthenticationService } from './login/user-authentication.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   imports: [
@@ -46,7 +47,7 @@ import { UserAuthenticationService } from './login/user-authentication.service';
     UserComponent
    
   ],
-  providers: [settingsService, MessageService, UserService, LoginService, UserAuthenticationService ],
+  providers: [settingsService, MessageService, UserService, LoginService, UserAuthenticationService , AuthGuard ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

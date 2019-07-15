@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Header } from '../header/header';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-home',

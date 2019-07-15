@@ -3,6 +3,8 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angul
 import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserAuthenticationService } from './login/user-authentication.service';
+import { HttpClientModule } from '@angular/common/http'; 
+import { HttpModule } from '@angular/http';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -11,7 +13,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate( next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if(! this.userAuthService.isUserLogedInStatus()) {
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
     }
     return this.userAuthService.isUserLogedInStatus()
   }
