@@ -20,6 +20,7 @@ import { DashRoutingModule }      from './dashboard/dash-routing.module';
 import { settingsService } from './settings.service';
 import { UserAuthenticationService } from './login/user-authentication.service';
 import { AuthGuard } from './auth.guard';
+import { Dashboard2Component } from './dashboard/dashboard2.component';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { AuthGuard } from './auth.guard';
     LoginComponent,
     HomeComponent,
     HeaderComponent,
-    UserComponent
+    UserComponent,
+    Dashboard2Component
    
   ],
   providers: [settingsService, MessageService, UserService, LoginService, UserAuthenticationService , AuthGuard ],
