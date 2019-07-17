@@ -20,6 +20,11 @@ login(UserLogin: userLogin)
        catchError(this.handleError));
 }
 
+GetCalData(UserLogin: userLogin)
+{
+  return this.http.post<any>(this._url, UserLogin);
+}
+
 handleError(error) {
  
    let errorMessage = '';
