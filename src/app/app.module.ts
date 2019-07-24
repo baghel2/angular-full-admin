@@ -20,7 +20,6 @@ import { DashRoutingModule }      from './dashboard/dash-routing.module';
 import { settingsService } from './settings.service';
 import { UserAuthenticationService } from './login/user-authentication.service';
 import { AuthGuard } from './auth.guard';
-import { Dashboard2Component } from './dashboard/dashboard2.component';
 import { FooterComponent } from './header/footer.component';
 
 @NgModule({
@@ -47,7 +46,6 @@ import { FooterComponent } from './header/footer.component';
     HomeComponent,
     HeaderComponent,
     UserComponent,
-    Dashboard2Component,
     FooterComponent
    
   ],
