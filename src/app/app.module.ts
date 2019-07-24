@@ -21,6 +21,7 @@ import { settingsService } from './settings.service';
 import { UserAuthenticationService } from './login/user-authentication.service';
 import { AuthGuard } from './auth.guard';
 import { Dashboard2Component } from './dashboard/dashboard2.component';
+import { FooterComponent } from './header/footer.component';
 
 @NgModule({
   imports: [
@@ -46,7 +47,8 @@ import { Dashboard2Component } from './dashboard/dashboard2.component';
     HomeComponent,
     HeaderComponent,
     UserComponent,
-    Dashboard2Component
+    Dashboard2Component,
+    FooterComponent
    
   ],
   providers: [settingsService, MessageService, UserService, LoginService, UserAuthenticationService , AuthGuard ],

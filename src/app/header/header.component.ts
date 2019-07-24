@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserAuthenticationService } from '../login/user-authentication.service';
 
 @Component({
@@ -9,11 +10,11 @@ export class HeaderComponent implements OnInit {
    
    w3_openvar:string="none";
 
-  constructor(private userAuthService: UserAuthenticationService) { 
+  constructor(private router: Router, private userAuthService: UserAuthenticationService) { 
   }
 
   ngOnInit() {
-  console.log(this.userAuthService.getLoggedInUser().userName);
+  
   }
 // Script to open and close sidebar
  w3_open() {
@@ -25,4 +26,10 @@ w3_close() {
     //document.getElementById("mySidebar").style.display = "none";
      this.w3_openvar="none";
 }
+logOut()
+{
+     this.userAuthService.logOut();
+     this.router.navigateByUrl('login');
+}
+
 }
