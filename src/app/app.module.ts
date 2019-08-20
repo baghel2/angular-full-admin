@@ -17,7 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { UserService } from './user/user.service';
 import { DashRoutingModule }      from './dashboard/dash-routing.module';
-import { settingsService } from './settings.service';
+
 import { UserAuthenticationService } from './service/user-authentication.service';
 import { AuthGuard } from './auth.guard';
 import { FooterComponent } from './header/footer.component';
@@ -50,7 +50,7 @@ import { ConfigurationService } from './service/configuration.service';
     FooterComponent
    
   ],
-  providers: [settingsService, MessageService, UserService, LoginService, UserAuthenticationService , AuthGuard, ConfigurationService ],
+  providers: [ MessageService, UserService, LoginService, UserAuthenticationService , AuthGuard, ConfigurationService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
