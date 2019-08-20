@@ -1,0 +1,78 @@
+    <h3 class="w3-border-bottom w3-border-light-gre">Add Leave details</h3>
+
+     <div >
+      <!-- <div align="right" ng-click="isSaved=!isSaved" style="cursor:pointer"><h3>{{msgHeader}}!</h3> &#10006;</div>-->
+        <div><span align="right" class="alignright" style="cursor:pointer" > &#10006;</span><h3>{</h3> </div>
+
+        <p></p>
+    </div>
+    <form novalidate name="myForm" ">
+            <div class="w3-row">
+                    <div class="w3-half rightpadding">
+                        <label><b>Leave From</b></label>
+                        <input class="w3-input w3-border" type="date" ng-model="LeaveFrom" name="LeaveFrom" placeholder="Leave Start From (DD/MM/YYYY)" required />
+                        <span style="color:red" ng-show="(myForm.$submitted || myForm.LeaveFrom.$touched) && myForm.LeaveFrom.$invalid">Leave From Date is required.</span>
+                    </div>
+                    <div class="w3-half rightpadding">
+                        <label><b>Leave To</b></label>
+                        <input class="w3-input w3-border" type="date" ng-model="LeaveTo" name="LeaveTo" placeholder="Leave To (DD/MM/YYYY)" required />
+                        <span style="color:red" ng-show="(myForm.$submitted || myForm.LeaveTo.$touched) && myForm.LeaveTo.$invalid">Leave To Date is required.</span>
+                    </div>
+            </div>
+            <div class="w3-row">
+                <p>
+                    <div class="w3-half rightpadding">
+                        <label><b>Leave Type</b></label>
+                        <select class="w3-input w3-border" ng-model="LeaveType" required>
+                            <option ng-repeat="type in leavetypes" value="{{type.Code}}">{{type.Type}}</option>
+                            <option value="">Select </option>
+                        </select>
+                        <span style="color:red" ng-show="(myForm.$submitted || myForm.LeaveType.$touched) && myForm.LeaveType.$invalid">Leave Type is required.</span>
+                    </div>
+                    <div class="w3-half rightpadding">
+                        <label><b>Comments</b></label>
+                        <input class="w3-input w3-border" type="text" ng-model="Comments" placeholder="comments" />
+                    </div>
+                </p>
+            </div>
+        <div class="w3-row">
+            <div class="w3-half">
+                <button class="w3-button w3-theme-d2 w3-section" ng-click="Add()" type="submit" ng-disabled="!myForm.$valid">
+                    <b> SAVE</b>
+                </button>
+            </div>
+        </div>
+        </form>
+
+    <div class="w3-responsive">
+        <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
+            <thead class="w3-theme-d2">
+                <tr>
+                    <td style="display:none">Id</td>
+                    <td ng-click="orderByThis('LeaveFrom')">Leave From</td>
+                    <td>Leave To</td>
+                    <td>Type</td>
+                    <td>Status</td>
+                    <td class="w3-hide-small">Comment</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody width="100%">
+                <tr ng-repeat="leave in leaves | orderBy:customOrderBy | orderBy:Id">
+                    <td style="display:none">{{leave.Id}}</td>
+                    <td width="20%">{{leave.LeaveFrom | date:'dd/MM/yyyy' }}</td>
+                    <td width="20%">{{leave.LeaveTo| date:'dd/MM/yyyy' }}</td>
+                    <td width="10%">{{leave.LeaveType }}</td>
+                    <td width="10%">{{leave.Status }}</td>
+                    <td width="30%" class="w3-hide-small">{{leave.Comments }}</td>
+
+                    <td width="10%">
+                        <span class="btn-default"  style="cursor:pointer" ng-click="editLeave(leave)">&#9998;</span>
+                        <span class="btn-danger" ng-show="leave.Status =='P' || leave.Status =='Pending'" style="cursor:pointer;color:red;" ng-click="DeleteLeave(leave.Id)">&#10006;</span>
+                        <span class="btn-danger" style="cursor:pointer;color:green;" ng-click="DeleteLeave(leave.Id)"> &#10004;</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
