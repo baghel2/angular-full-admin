@@ -9,12 +9,12 @@ import { UserAuthenticationService } from '../service/user-authentication.servic
 export class HeaderComponent implements OnInit {
    
    w3_openvar:string="none";
-
+   user:string='';
   constructor(private router: Router, private userAuthService: UserAuthenticationService) { 
   }
 
   ngOnInit() {
-  
+  this.user = this.userAuthService.getLoggedInUser().userName;
   }
 // Script to open and close sidebar
  w3_open() {
