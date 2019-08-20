@@ -18,7 +18,7 @@ import { UserComponent } from './user/user.component';
 import { UserService } from './user/user.service';
 import { DashRoutingModule }      from './dashboard/dash-routing.module';
 import { settingsService } from './settings.service';
-import { UserAuthenticationService } from './login/user-authentication.service';
+import { UserAuthenticationService } from './service/user-authentication.service';
 import { AuthGuard } from './auth.guard';
 import { FooterComponent } from './header/footer.component';
 import { ConfigurationService } from './service/configuration.service';

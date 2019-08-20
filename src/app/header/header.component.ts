@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UserAuthenticationService } from '../login/user-authentication.service';
+import { UserAuthenticationService } from '../service/user-authentication.service';
 
 @Component({
   selector: 'app-header',

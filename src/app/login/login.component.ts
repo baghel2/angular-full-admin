@@ -5,7 +5,7 @@ import { IUser } from './user';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { LoginService } from './login.service';
 import { userLogin } from './userLogin';
-import { UserAuthenticationService } from './service/user-authentication.service';
+import { UserAuthenticationService } from '../service/user-authentication.service';
 
 @Component({
   selector: 'app-login',
