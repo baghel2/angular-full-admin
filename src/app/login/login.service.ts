@@ -5,13 +5,15 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError, map } from 'rxjs/operators';
 import { userLogin } from './userLogin';
 
+import {ConfigurationService} from '../service/configuration.service';
+
 
 
 @Injectable() export class LoginService
 {
-constructor(private http: HttpClient){}
+constructor(private http: HttpClient, private configuration: ConfigurationService){}
 
-private _url : string = 'http://localhost:17351/api/login';
+private _url : string = this.configuration.baseApiUrl+ 'login';
 
 login(UserLogin: userLogin)
 {

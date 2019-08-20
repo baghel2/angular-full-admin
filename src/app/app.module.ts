@@ -15,12 +15,13 @@ import { LoginService } from './login/login.service';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
-import { UserService } from './service/user.service';
+import { UserService } from './user/user.service';
 import { DashRoutingModule }      from './dashboard/dash-routing.module';
 import { settingsService } from './settings.service';
 import { UserAuthenticationService } from './login/user-authentication.service';
 import { AuthGuard } from './auth.guard';
 import { FooterComponent } from './header/footer.component';
+import { ConfigurationService } from './service/configuration.service';
 
 @NgModule({
   imports: [
@@ -49,7 +50,7 @@ import { FooterComponent } from './header/footer.component';
     FooterComponent
    
   ],
-  providers: [settingsService, MessageService, UserService, LoginService, UserAuthenticationService , AuthGuard ],
+  providers: [settingsService, MessageService, UserService, LoginService, UserAuthenticationService , AuthGuard, ConfigurationService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
