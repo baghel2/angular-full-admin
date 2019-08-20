@@ -22,6 +22,7 @@ import { UserAuthenticationService } from './service/user-authentication.service
 import { AuthGuard } from './auth.guard';
 import { FooterComponent } from './header/footer.component';
 import { ConfigurationService } from './service/configuration.service';
+import { LeaveComponent } from './leave/leave.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { ConfigurationService } from './service/configuration.service';
     HomeComponent,
     HeaderComponent,
     UserComponent,
-    FooterComponent
+    FooterComponent,
+    LeaveComponent
    
   ],
   providers: [ MessageService, UserService, LoginService, UserAuthenticationService , AuthGuard, ConfigurationService ],
