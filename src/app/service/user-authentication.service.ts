@@ -15,6 +15,7 @@ export class UserAuthenticationService {
    {
      this.isUserLoggedIn = true;
      this.user = user;
+     console.log(this.user);
    }
 
    UserLogedInStatus(){
